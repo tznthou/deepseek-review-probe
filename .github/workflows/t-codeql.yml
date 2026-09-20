@@ -1,5 +1,10 @@
 name: t codeql
 on: workflow_dispatch
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+  packages: read
 jobs:
   codeql:
     uses: tznthou/deepseek-code-review/.github/workflows/reusable-codeql.yml@feat/reusable-workflows
