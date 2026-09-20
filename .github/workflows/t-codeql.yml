@@ -10,3 +10,4 @@ jobs:
     uses: tznthou/deepseek-code-review/.github/workflows/reusable-codeql.yml@feat/reusable-workflows
     with:
       languages: '["python"]'
+      kit-ref: feat/reusable-workflows
