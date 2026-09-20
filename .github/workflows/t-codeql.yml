@@ -7,7 +7,6 @@ permissions:
   packages: read
 jobs:
   codeql:
-    uses: tznthou/deepseek-code-review/.github/workflows/reusable-codeql.yml@feat/reusable-workflows
+    uses: tznthou/deepseek-code-review/.github/workflows/reusable-codeql.yml@v1
     with:
       languages: '["python"]'
-      kit-ref: feat/reusable-workflows

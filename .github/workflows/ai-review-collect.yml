@@ -6,4 +6,4 @@ on:
 
 jobs:
   collect:
-    uses: tznthou/deepseek-code-review/.github/workflows/reusable-ai-review-collect.yml@feat/reusable-workflows
+    uses: tznthou/deepseek-code-review/.github/workflows/reusable-ai-review-collect.yml@v1

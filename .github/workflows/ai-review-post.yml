@@ -7,6 +7,6 @@ on:
 
 jobs:
   post:
-    uses: tznthou/deepseek-code-review/.github/workflows/reusable-ai-review-post.yml@feat/reusable-workflows
+    uses: tznthou/deepseek-code-review/.github/workflows/reusable-ai-review-post.yml@v1
     secrets:
       DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}

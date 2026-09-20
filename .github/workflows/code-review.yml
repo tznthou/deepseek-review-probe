@@ -6,7 +6,7 @@ on:
 
 jobs:
   static:
-    uses: tznthou/deepseek-code-review/.github/workflows/reusable-static-review.yml@feat/reusable-workflows
+    uses: tznthou/deepseek-code-review/.github/workflows/reusable-static-review.yml@v1
     with:
       lint-command: shellcheck -f gcc $(git ls-files '*.sh')
       lint-name: shellcheck
@@ -14,6 +14,6 @@ jobs:
       skip-dependency-review: true
 
   codeql:
-    uses: tznthou/deepseek-code-review/.github/workflows/reusable-codeql.yml@feat/reusable-workflows
+    uses: tznthou/deepseek-code-review/.github/workflows/reusable-codeql.yml@v1
     with:
       languages: '["python"]'
