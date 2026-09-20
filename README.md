@@ -44,3 +44,5 @@ ai review post     → 由 workflow_run 觸發，呼叫 DeepSeek
 3. **caller 不宣告 `permissions` 會整個 `startup_failure`**——被呼叫的 workflow 拿不到
    超過呼叫方的權限。這個失敗特別難查：`actionlint` 驗不出來、`--log-failed` 是空的、
    `gh run view` 只會說「likely failed because of a workflow file issue」
+
+第四輪：驗證 v1.0.1（shell injection 修正）。
