@@ -7,9 +7,9 @@ permissions:
   packages: read
 jobs:
   codeql:
-    uses: tznthou/deepseek-code-review/.github/workflows/reusable-codeql.yml@fix/review-findings
+    uses: tznthou/deepseek-code-review/.github/workflows/reusable-codeql.yml@v1
     with:
       languages: '["python"]'
-      kit-ref: fix/review-findings
+      kit-ref: v1
       config-file: .github/does-not-exist.yml
       skip-trivy: true

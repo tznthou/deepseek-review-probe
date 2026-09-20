@@ -4,4 +4,4 @@ permissions:
   contents: read
 jobs:
   collect:
-    uses: tznthou/deepseek-code-review/.github/workflows/reusable-ai-review-collect.yml@fix/review-findings
+    uses: tznthou/deepseek-code-review/.github/workflows/reusable-ai-review-collect.yml@v1
