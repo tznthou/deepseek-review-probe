@@ -1,0 +1,7 @@
+name: t codeql
+on: workflow_dispatch
+jobs:
+  codeql:
+    uses: tznthou/deepseek-code-review/.github/workflows/reusable-codeql.yml@feat/reusable-workflows
+    with:
+      languages: '["python"]'

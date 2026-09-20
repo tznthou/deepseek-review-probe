@@ -1,0 +1,8 @@
+name: t static
+on: workflow_dispatch
+jobs:
+  static:
+    uses: tznthou/deepseek-code-review/.github/workflows/reusable-static-review.yml@feat/reusable-workflows
+    with:
+      skip-draft: false
+      skip-dependency-review: true
