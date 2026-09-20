@@ -2,11 +2,16 @@ name: ai review post
 
 on:
   workflow_run:
-    workflows: ['ai review collect'] # 必須與上面那支的 name: 完全一致
+    workflows: ['ai review collect'] # ⚠️ 必須與上面那支的 name: 完全一致
     types: [completed]
+
+permissions:
+  contents: read
+  pull-requests: write # 貼 review comment
+  actions: read # 下載上一段的 artifact
 
 jobs:
   post:
-    uses: tznthou/deepseek-code-review/.github/workflows/reusable-ai-review-post.yml@feat/reusable-workflows
+    uses: tznthou/deepseek-code-review/.github/workflows/reusable-ai-review-post.yml@v1
     secrets:
       DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
