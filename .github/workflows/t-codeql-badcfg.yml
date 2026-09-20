@@ -1,0 +1,15 @@
+name: t codeql badcfg
+on: workflow_dispatch
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+  packages: read
+jobs:
+  codeql:
+    uses: tznthou/deepseek-code-review/.github/workflows/reusable-codeql.yml@fix/review-findings
+    with:
+      languages: '["python"]'
+      kit-ref: fix/review-findings
+      config-file: .github/does-not-exist.yml
+      skip-trivy: true
