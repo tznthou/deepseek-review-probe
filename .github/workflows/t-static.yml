@@ -1,8 +1,14 @@
 name: t static
 on: workflow_dispatch
+permissions:
+  contents: read
+  pull-requests: write
 jobs:
   static:
     uses: tznthou/deepseek-code-review/.github/workflows/reusable-static-review.yml@feat/reusable-workflows
     with:
       skip-draft: false
       skip-dependency-review: true
+      lint-command: shellcheck -f gcc $(git ls-files '*.sh')
+      lint-name: shellcheck
+      fail-level: none
