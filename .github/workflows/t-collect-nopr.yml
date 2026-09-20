@@ -1,0 +1,7 @@
+name: t collect nopr
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  collect:
+    uses: tznthou/deepseek-code-review/.github/workflows/reusable-ai-review-collect.yml@v1
