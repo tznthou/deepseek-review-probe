@@ -4,6 +4,14 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
 
+# ⚠️ 這段不能省，理由見 USAGE.md「四個最容易踩的坑」的第 4 點
+permissions:
+  contents: read
+  pull-requests: write # reviewdog / dependency-review 要貼留言
+  security-events: write # CodeQL / Trivy 要上傳 SARIF
+  actions: read
+  packages: read # CodeQL 抓 packs
+
 jobs:
   static:
     uses: tznthou/deepseek-code-review/.github/workflows/reusable-static-review.yml@v1

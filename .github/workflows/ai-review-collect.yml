@@ -4,6 +4,9 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
 
+permissions:
+  contents: read
+
 jobs:
   collect:
     uses: tznthou/deepseek-code-review/.github/workflows/reusable-ai-review-collect.yml@v1
