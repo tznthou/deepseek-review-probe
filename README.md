@@ -12,3 +12,5 @@
 的 `probe/reusable-workflow-run` 分支。
 
 驗證完畢後這個 repo 會被刪除。
+
+第三輪：驗證 @v1 tag 與文件範本。
