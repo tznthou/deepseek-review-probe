@@ -1,0 +1,24 @@
+# 第二段：模擬 04-ai-review-post —— 由 workflow_run 觸發。
+#
+# ⭐ 這整個探針要驗的就是這一件事：
+#    一個由 `workflow_run` 觸發的 workflow，它的 job 能不能用 `uses:` 呼叫
+#    **另一個 repo** 的 reusable workflow。官方文件沒有寫。
+name: probe post
+
+on:
+  workflow_run:
+    workflows: ['probe collect']
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  call-reusable:
+    # 只處理由 pull_request 觸發且成功的 run，與 04 的條件一致
+    if: >
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success'
+    uses: tznthou/deepseek-code-review/.github/workflows/reusable-probe.yml@probe/reusable-workflow-run
+    with:
+      note: '由 workflow_run 觸發的 caller 呼叫跨 repo reusable'

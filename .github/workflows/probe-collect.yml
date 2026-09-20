@@ -1,0 +1,26 @@
+# 第一段：模擬 03-ai-review-collect —— pull_request 觸發，產出 artifact，零 secret
+name: probe collect
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: 產出 artifact
+        run: |
+          echo "PR #${{ github.event.pull_request.number }}" > result.txt
+          echo "collect 段完成於 $(date -u)" >> result.txt
+      - uses: actions/upload-artifact@v7
+        with:
+          name: probe-result
+          path: result.txt
+          retention-days: 1
