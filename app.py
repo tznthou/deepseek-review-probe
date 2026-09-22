@@ -19,9 +19,19 @@ def merge(base: dict, override: dict) -> dict:
     return out
 
 
+def coerce_int(value, fallback: int) -> int:
+    """把設定值轉成 int，轉不動就退回 fallback。"""
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return fallback
+
+
 def main() -> int:
     defaults = {"retries": 3, "timeout": 30}
     cfg = merge(defaults, load_config("config.json"))
+    cfg["retries"] = coerce_int(cfg.get("retries"), defaults["retries"])
+    cfg["timeout"] = coerce_int(cfg.get("timeout"), defaults["timeout"])
     print(json.dumps(cfg, ensure_ascii=False, indent=2))
     return 0
 
