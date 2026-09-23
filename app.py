@@ -32,6 +32,8 @@ def main() -> int:
     cfg = merge(defaults, load_config("config.json"))
     cfg["retries"] = coerce_int(cfg.get("retries"), defaults["retries"])
     cfg["timeout"] = coerce_int(cfg.get("timeout"), defaults["timeout"])
+    if cfg["timeout"] <= 0:
+        cfg["timeout"] = defaults["timeout"]
     print(json.dumps(cfg, ensure_ascii=False, indent=2))
     return 0
 
