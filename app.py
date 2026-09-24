@@ -45,3 +45,4 @@ if __name__ == "__main__":
 # policy probe: E3 sha_pinning_required
 # policy probe: control after restore
 # policy probe: E2b + setup-trivy
+# regression: v1.4.0
