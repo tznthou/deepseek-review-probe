@@ -41,3 +41,4 @@ def main() -> int:
 if __name__ == "__main__":
     raise SystemExit(main())
 # policy probe: E1 local_only
+# policy probe: E2 selected + github-owned + 3 patterns
