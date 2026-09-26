@@ -19,12 +19,33 @@ def merge(base: dict, override: dict) -> dict:
     return out
 
 
+def coerce_int(value, fallback: int) -> int:
+    """把設定值轉成 int，轉不動就退回 fallback。"""
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return fallback
+
+
 def main() -> int:
     defaults = {"retries": 3, "timeout": 30}
     cfg = merge(defaults, load_config("config.json"))
+    cfg["retries"] = coerce_int(cfg.get("retries"), defaults["retries"])
+    cfg["timeout"] = coerce_int(cfg.get("timeout"), defaults["timeout"])
+    if cfg["timeout"] <= 0:
+        cfg["timeout"] = defaults["timeout"]
     print(json.dumps(cfg, ensure_ascii=False, indent=2))
     return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
+# policy probe: E1 local_only
+# policy probe: E2 selected + github-owned + 3 patterns
+# policy probe: E3 sha_pinning_required
+# policy probe: control after restore
+# policy probe: E2b + setup-trivy
+# regression: v1.4.0
+# regression: v1.4.1-S
+# regression: v1.4.1-E
+# regression: v1.4.1-F
