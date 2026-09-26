@@ -47,3 +47,4 @@ if __name__ == "__main__":
 # policy probe: E2b + setup-trivy
 # regression: v1.4.0
 # regression: v1.4.1-S
+# regression: v1.4.1-E
