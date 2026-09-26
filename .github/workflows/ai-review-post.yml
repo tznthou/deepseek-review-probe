@@ -12,11 +12,12 @@ permissions:
 
 jobs:
   post:
-    uses: tznthou/deepseek-code-review/.github/workflows/reusable-ai-review-post.yml@v1
+    uses: tznthou/deepseek-code-review/.github/workflows/reusable-ai-review-post.yml@v1.4.1
     with:
       # 這個參數自 v1.2.0 起沒有作用，v1.2.1 把它加回成 no-op（見上游 README §5）。
       # 這裡刻意傳它，用來驗「舊 caller 不會因為升級而 startup_failure」——
       # 那是 v1 這條線的相容性承諾，而上游自己的 caller 沒傳這個參數、驗不到。
       filter-findings: true
+      kit-ref: v1.4.1
     secrets:
       DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
